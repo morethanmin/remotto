@@ -1,15 +1,32 @@
 <% layout('/layouts/appBoilerplate') %>
-
+<div class="row">
+<div class="col-10"></div>
+<div class="col-2 toggleBox mb-3">
+<form action="" method="get">
+    <button class="btn btn-success btn-block">📝</button>
+</form>
+</div>
+</div>
 
 <% for(let i=0; i<20; i++){ %> 
 
 <div class="card mb-5">
     <div class="card-body">
-        유저네임
+        Username
     </div>
-    이미지
+    <img src="https://unsplash.com/photos/W51VK3Obcj0/download?force=true&w=2400" alt="" srcset="">
+    
+    <div class="card-body row">
+        <form action="#" method="get">
+            <button class="likeBtn">❤</button>
+        </form>
+        <form action="#" method="get">
+            <button class="messegeBtn">✉</button>
+        </form>
+    </div>
+    <div class="card-body">0명이 이게시글을 좋아합니다.</div>
     <div class="card-body ">
-        게시글
+        text
     </div>
 </div>
 

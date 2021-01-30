@@ -1,3 +1,14 @@
 .content{
     max-width: 700px;
 }
+
+.likeBtn,.messegeBtn {
+    background-color: white;
+    border: 0;
+    outline: 0;
+}
+
+.likeBtn:focus,.messegeBtn:focus{ 	
+    border: none;
+    outline:none;
+    }
