@@ -1,6 +1,5 @@
 module.exports.isLoggedIn = (req, res, next) => {
-    //console.log(req.body)
-    // console.log(!req.isAuthenticated())
+    // console.log(req.user)
   if (!req.isAuthenticated()) { // 로그인이 안되어 있다면
     //console.log(req.path, req.originalUrl)
     //req.session.returnTo = req.originalUrl;

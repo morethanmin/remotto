@@ -5,6 +5,8 @@ const { isNotLoggedIn } = require("../controllers/middleware");
 
 const userController = require("../controllers/users")
 
+
+
 router.route("/login")
 .get(
     isNotLoggedIn,

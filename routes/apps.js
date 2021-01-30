@@ -10,13 +10,19 @@ router.route("/")
     appController.renderIndex)
 
 router.route("/messeges")
-.get(appController.renderMesseges)
+.get(
+    isLoggedIn,
+    appController.renderMesseges)
 
 router.route("/likes")
-.get(appController.renderLikes)
+.get(
+    isLoggedIn,
+    appController.renderLikes)
 
 router.route("/profile")
-.get(appController.renderProfile)
+.get(
+    isLoggedIn,
+    appController.renderProfile)
 
 
 module.exports = router;
