@@ -32,10 +32,10 @@ module.exports.register = async (req,res) => {
 }
 
 module.exports.renderProfile = async (req,res) => {
-    // console.log(res.locals.currnetUser)
-        const currentUser = req.user
+    const user = await User.findById(req.params.id)
+    //  console.log(user)
         //로그인되어있을경우
-        res.render("users/profile",{currentUser})
+        res.render("users/profile",{user})
     }
     
 

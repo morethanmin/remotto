@@ -1,0 +1,46 @@
+<% layout('/layouts/appBoilerplate') %>
+
+
+<div class="card">
+    <div class="card-body ">
+        <form action="new" method="POST" novalidate class="validated-form" enctype="multipart/form-data">
+            <div class="mb-3 newImgBox">
+                <img src="" alt="" srcset="">
+            </div>
+            <div class="mb-3">
+                <!-- <input type="file" name="aaaa" placeholder="aaaa"> -->
+                <div class="form-file custom-file">
+                    <!-- <input type="file" name="aaaa" placeholder="aaaa"> -->
+
+                    <input type="file" class="form-file-input" id="image" name="aaaa">
+                    <label class="form-file-label" for="image">
+                        <span id="pic" class="form-file-text custom-file-label">Choose image(s)...</span>
+                        <span class="form-file-button">Browse</span>
+                    </label>
+                </div>
+            </div>
+            <div class="mb-3">
+                <label class="form-label" for="description">내용</label>
+                <textarea class="form-control" type="text" id="description" name="article[description]"
+                required></textarea>
+            </div>
+            <div class="mb-3">
+                <button class="btn btn-success">게시..</button>
+
+            </div>
+        </form>
+    </div>
+    
+</div>
+
+<script>
+    document.querySelector('.form-file-input').addEventListener('change',function(e){
+var fileName = document.getElementById("image").files[0].name;
+var target = document.querySelector("#pic");
+ console.dir(document.getElementById("image").value)
+// var nextSibling = e.target.nextElementSibling
+target.innerText = fileName
+})
+
+
+</script>

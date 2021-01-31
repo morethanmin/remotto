@@ -1,16 +1,16 @@
 const express = require("express");
-const router = express.Router();
-const { isLoggedIn } = require("../controllers/middleware");
+const multer = require('multer');
 
+const { storage } = require("../cloudinary");
+const upload = multer({ storage });
+const router = express.Router();
+
+const { isLoggedIn } = require("../controllers/middleware");
 const appController = require("../controllers/apps")
 
 router.use(isLoggedIn)
 
-router.use((req,res,next) => {
-    res.locals.currentUser = req.user;
-    // console.log(res.locals.currentUser)
-    next();
-})
+
 
 router.route("/")
 .get(
@@ -24,6 +24,12 @@ router.route("/likes")
 .get(
     appController.renderLikes)
 
+router.route("/new")
+.get(
+    appController.renderNew)
+.post(
+    upload.single('aaaa'),
+    appController.createArticle)
 
 
 // router.route("/:id")

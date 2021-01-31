@@ -4,12 +4,12 @@
 
 <div class="card">
     
-    <div class="card-body">
-        <img src="<%= currentUser.image.url %> " alt="" srcset="">
-        <div class="">아이디 : <%= currentUser.username %> </div>
-        <div class="">이메일 : <%= currentUser.email %> </div>
+    <div class="card-body align-items-center">
+        <img class=" profileImg col" src="<%= user.image.url %> " alt="" srcset="">
+        <div class="col">아이디 : <%= user.username %> </div>
+        <div class="col">이메일 : <%= user.email %> </div>
         <form action="/logout" method="POST" class="validated-form" novalidate>
-            <button class="btn btn-danger btn-block">logout</button>
+            <button class="btn btn-danger btn-block">로그아웃</button>
         </form>
     </div>
     

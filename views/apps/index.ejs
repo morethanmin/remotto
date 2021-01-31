@@ -1,38 +1,38 @@
 <% layout('/layouts/appBoilerplate') %>
 <div class="row">
-<div class="col-10"></div>
-<div class="col-2 toggleBox mb-3">
-<form action="" method="get">
-    <button class="btn btn-success btn-block">📝</button>
-</form>
-</div>
+  <div class="col-10"></div>
+  <div class="col-2 toggleBox mb-3">
+    <form action="new" method="get">
+      <button class="btn btn-success btn-block">📝</button>
+    </form>
+  </div>
 </div>
 
-<% for(let i=0; i<20; i++){ %> 
+<% for(let article of articles){ %>
 
 <div class="card mb-5">
-    <div class="card-body row align-items-center">
-        <img class="profile" src="/images/default-user.jpg" alt="" srcset="">
-        <div class="">Username</div>
-    </div>
-    <img src="https://unsplash.com/photos/W51VK3Obcj0/download?force=true&w=2400" alt="" srcset="">
-    
-    <div class="card-body row">
-        <form action="#" method="get">
-            <button class="likeBtn">❤</button>
-        </form>
-        <form action="#" method="get">
-            <button class="messegeBtn">✉</button>
-        </form>
-    </div>
-    <div class="card-body">0명이 이게시글을 좋아합니다.</div>
-    <div class="card-body ">
-        text
-    </div>
-    <hr>
-    <div class="card-body">
-        comment...
-    </div>
+  <div class="card-body row align-items-center">
+    <img class="profile" src="<%= article.author.image.url %>" alt="" srcset="" />
+    <div class=""><%= article.author.username %> </div>
+  </div>
+  <img
+    src="<%= article.image.url %> "
+    alt=""
+    srcset=""
+  />
+
+  <div class="card-body row">
+    <form action="#" method="get">
+      <button class="likeBtn">❤</button>
+    </form>
+    <form action="#" method="get">
+      <button class="messegeBtn">✉</button>
+    </form>
+  </div>
+  <div class="card-body"><%= article.like %>명이 이게시글을 좋아합니다.</div>
+  <div class="card-body"><%= article.description %> </div>
+  <hr />
+  <div class="card-body">comment...</div>
 </div>
 
-<% } %> 
+<% } %>
