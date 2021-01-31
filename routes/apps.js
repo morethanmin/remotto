@@ -4,25 +4,33 @@ const { isLoggedIn } = require("../controllers/middleware");
 
 const appController = require("../controllers/apps")
 
+router.use(isLoggedIn)
+
+router.use((req,res,next) => {
+    res.locals.currentUser = req.user;
+    // console.log(res.locals.currentUser)
+    next();
+})
+
 router.route("/")
 .get(
-    isLoggedIn,
     appController.renderIndex)
 
 router.route("/messeges")
 .get(
-    isLoggedIn,
     appController.renderMesseges)
 
 router.route("/likes")
 .get(
-    isLoggedIn,
     appController.renderLikes)
 
-router.route("/profile")
-.get(
-    isLoggedIn,
-    appController.renderProfile)
+
+
+// router.route("/:id")
+// .get(
+//     isLoggedIn,
+//     appController.renderProfile
+// )
 
 
 module.exports = router;

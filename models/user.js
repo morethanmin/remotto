@@ -9,16 +9,26 @@ const UserSchema = new Schema({
         unique: true
     },
     comment : {
-
+        type: String,
+        deafult: "hello"
     },
-    img : {
-
+    image: {
+        url: {
+            type: String,
+            default: '/images/default-user.jpg'
+        },
+        filename : {
+            type: String,
+            default: 'default'
+        }
     },
-    articles:{
-
+    myArticles:{
+        type: Schema.Types.ObjectId,
+        ref: 'Article'
     },
-    likes: {
-
+    myLikes: {
+        type: Schema.Types.ObjectId,
+        ref: 'Article'
     }
 });
 

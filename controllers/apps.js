@@ -1,3 +1,6 @@
+const userModel = require("../models/user");
+
+
 
 
 module.exports.renderIndex = async (req,res) => {
@@ -15,7 +18,3 @@ module.exports.renderLikes = async (req,res) => {
     res.render("apps/likes")
 }
 
-module.exports.renderProfile = async (req,res) => {
-    //로그인되어있을경우
-    res.render("apps/profile")
-}

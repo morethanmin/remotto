@@ -1,5 +1,6 @@
 .content{
     max-width: 700px;
+    padding: 0;
 }
 
 .likeBtn,.messegeBtn {
@@ -12,3 +13,10 @@
     border: none;
     outline:none;
     }
+
+.profile {
+    width: 40px;
+    border-radius: 50%;
+    border: 2px solid #cccccc;
+    margin: 0px 20px 0px 10px;
+}

@@ -16,7 +16,7 @@ const session = require('express-session');
 const MongoDBStore = require('connect-mongo')(session);
 
 // routes
-const articleRoutes = require('./routes/apps');
+const appRoutes = require('./routes/apps');
 const userRoutes = require('./routes/users');
 
 //mongo
@@ -80,16 +80,16 @@ passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
 
-// app.use("/", (req, res) => {
-//   res.render("home")
-// });
 
-app.use('/', articleRoutes);
 app.use('/', userRoutes);
+app.use('/', appRoutes);
+
 
 const port = process.env.PORT || 3000;
 
 app.listen(port, () => {
   console.log(`Serving on port ${port}`);
 });
+
+
 

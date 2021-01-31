@@ -30,3 +30,12 @@ module.exports.register = async (req,res) => {
         //console.log("error = " + e + "입니다.")
     }
 }
+
+module.exports.renderProfile = async (req,res) => {
+    // console.log(res.locals.currnetUser)
+        const currentUser = req.user
+        //로그인되어있을경우
+        res.render("users/profile",{currentUser})
+    }
+    
+
