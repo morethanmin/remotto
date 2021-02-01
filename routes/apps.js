@@ -32,11 +32,10 @@ router.route("/new")
     appController.createArticle)
 
 
-// router.route("/:id")
-// .get(
-//     isLoggedIn,
-//     appController.renderProfile
-// )
+ router.route("/:id")
+ .get(
+     appController.renderShow
+ )
 
 
 module.exports = router;

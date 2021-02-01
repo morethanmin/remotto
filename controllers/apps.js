@@ -1,15 +1,16 @@
 const userModel = require("../models/user");
-const ArticleModel = require("../models/article");
+const articleModel = require("../models/article");
 
 
 module.exports.renderIndex = async (req,res) => {
-    const articles = await ArticleModel.find({})
+    const articles = await articleModel.find({})
     .populate({
         path:"author",
         populate: { path: "image"}
     })
+    
     //const author = await userModel.findById('article')
-    console.log(articles[0].author)
+    //  console.log(articles[4].likes.length)
     //로그인되어있을경우
     res.render("apps/index",{articles})
 }
@@ -31,11 +32,18 @@ module.exports.renderNew = async (req,res) => {
     res.render("apps/new")
 }
 
+module.exports.renderShow = async (req,res) => {
+    
+    const article = await articleModel.findById(req.params.id).populate('author')
+    // console.log(article)
+    res.render("apps/show",{article})
+}
+
 module.exports.createArticle = async (req,res) => {
     // console.log(req.file);
     // console.log(req.body.article)
     //const {image, description} = req.body;
-    const article = new ArticleModel(req.body.article)
+    const article = new articleModel(req.body.article)
     article.image = {
         url: req.file.path,
         filename: req.file.filename
@@ -44,3 +52,4 @@ module.exports.createArticle = async (req,res) => {
     await article.save();
     res.redirect('/')
 }
+

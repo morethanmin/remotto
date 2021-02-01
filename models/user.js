@@ -22,11 +22,7 @@ const UserSchema = new Schema({
             default: 'default'
         }
     },
-    myArticles:{
-        type: Schema.Types.ObjectId,
-        ref: 'Article'
-    },
-    myLikes: {
+    likes: {
         type: Schema.Types.ObjectId,
         ref: 'Article'
     }

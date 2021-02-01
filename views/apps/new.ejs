@@ -5,7 +5,7 @@
     <div class="card-body ">
         <form action="new" method="POST" novalidate class="validated-form" enctype="multipart/form-data">
             <div class="mb-3 newImgBox">
-                <img src="" alt="" srcset="">
+                <img src="" id="previewImg" alt="" srcset="">
             </div>
             <div class="mb-3">
                 <!-- <input type="file" name="aaaa" placeholder="aaaa"> -->
@@ -33,7 +33,12 @@
     
 </div>
 
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
+
 <script>
+    //file input preview value
     document.querySelector('.form-file-input').addEventListener('change',function(e){
 var fileName = document.getElementById("image").files[0].name;
 var target = document.querySelector("#pic");
@@ -42,5 +47,22 @@ var target = document.querySelector("#pic");
 target.innerText = fileName
 })
 
+    //file input preview img
+
+    function readURL(input) {
+  if (input.files && input.files[0]) {
+    var reader = new FileReader();
+    
+    reader.onload = function(e) {
+      $('#previewImg').attr('src', e.target.result);
+    }
+    
+    reader.readAsDataURL(input.files[0]); // convert to base64 string
+  }
+}
+
+$("#image").change(function() {
+  readURL(this);
+});
 
 </script>

@@ -1,34 +1,29 @@
 <% layout('/layouts/appBoilerplate') %>
-<div class="row">
-  <div class="col-10"></div>
-  <div class="col-2 toggleBox mb-3">
-    <form action="new" method="get">
-      <button class="btn btn-success btn-block">📝</button>
-    </form>
-  </div>
-</div>
-
-<% for(let article of articles){ %>
 
 <div class="card mb-5">
-  <div class="card-body">
-    <a
-      class="aNo row align-items-center"
-      href="/user/<%= article.author.username %> "
-    >
-      <img
-        class="profile"
-        src="<%= article.author.image.url %>"
-        alt=""
-        srcset=""
-      />
-      <span class=""><%= article.author.username %></span>
-    </a>
-  </div>
+    <div class="card-body">
+        <div class="row align-items-center">
+        <a
+          class="aNo "
+          href="/user/<%= article.author.username %> "
+        >
+          <img
+            class="profile"
+            src="<%= article.author.image.url %>"
+            alt=""
+            srcset=""
+          />
+          <span class=""><%= article.author.username %></span>
+        </a>
+        <% if(currentUser.username === article.author.username) { %> 
+            <form class="mr-3 right" action="">
+              <button class="btn btn-danger">삭제</button>
+            </form>
+        <% } %> 
+        </div>
+    </div>
   <div>
-    <a href="<%= article._id %> ">
-      <img class="mainImg" src="<%= article.image.url %> " alt="" srcset="" />
-    </a>
+    <img class="mainImg" src="<%= article.image.url %> " alt="" srcset="" />
   </div>
   <div class="card-body">
     <div class="mb-3 articleToggleBox row">
@@ -56,6 +51,8 @@
       </div>
     </form>
   </div>
+  <hr class="m-0" />
+  <div class="card-body">
+    <p><%= article.author.username %>님의 게시글 더보기</p>
+  </div>
 </div>
-
-<% } %>

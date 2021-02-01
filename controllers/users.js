@@ -1,4 +1,5 @@
-const User = require("../models/user");
+const userModel = require("../models/user");
+const articleModel = require("../models/article");
 
 module.exports.renderLogin = async (req,res) => {
     res.render("users/login")
@@ -23,7 +24,7 @@ module.exports.register = async (req,res) => {
     try {
     const {email, username, password} = req.body;
     const user = new User({username,email});
-    await User.register(user, password);
+    await userModel.register(user, password);
     res.redirect("/login");
     } catch(e) {
         res.redirect("/register");
@@ -32,10 +33,13 @@ module.exports.register = async (req,res) => {
 }
 
 module.exports.renderProfile = async (req,res) => {
-    const user = await User.findById(req.params.id)
-    //  console.log(user)
+    const user = await userModel.findOne({username:req.params.username})
+    //console.log(user._id)
+    const userId = user._id
+    const userArticles = await articleModel.find({author:userId})
+    //console.log(userArticles)
         //로그인되어있을경우
-        res.render("users/profile",{user})
+        res.render("users/profile",{user,userArticles})
     }
     
 

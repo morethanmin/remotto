@@ -8,10 +8,20 @@
         <img class=" profileImg col" src="<%= user.image.url %> " alt="" srcset="">
         <div class="col">아이디 : <%= user.username %> </div>
         <div class="col">이메일 : <%= user.email %> </div>
+        <% if(currentUser.username === user.username) { %> 
         <form action="/logout" method="POST" class="validated-form" novalidate>
             <button class="btn btn-danger btn-block">로그아웃</button>
         </form>
+        <% } %> 
     </div>
-    
+    <hr>
+    <p>게시물</p>
+    <div class="card-body row">
+        <% for(let userArticle of userArticles) { %>
+            <div class="col-4">
+            <img class="profileImg" src="<%= userArticle.image.url %> " alt="" srcset="">
+        </div>
+            <% } %>  
+    </div>
 </div>
 
