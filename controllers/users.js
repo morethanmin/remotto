@@ -28,7 +28,7 @@ module.exports.register = async (req,res) => {
     res.redirect("/login");
     } catch(e) {
         res.redirect("/register");
-        //console.log("error = " + e + "입니다.")
+        //console.log("error = " + e + "입니다.")  s
     }
 }
 
