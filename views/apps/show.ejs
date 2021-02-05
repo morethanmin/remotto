@@ -1,27 +1,25 @@
 <% layout('/layouts/appBoilerplate') %>
 
 <div class="card mb-5">
-    <div class="card-body">
-        <div class="row align-items-center">
-        <a
-          class="aNo "
-          href="/user/<%= article.author.username %> "
-        >
-          <img
-            class="profile"
-            src="<%= article.author.image.url %>"
-            alt=""
-            srcset=""
-          />
-          <span class=""><%= article.author.username %></span>
-        </a>
-        <% if(currentUser.username === article.author.username) { %> 
-            <form class="mr-3 right" action="">
-              <button class="btn btn-danger">삭제</button>
-            </form>
-        <% } %> 
-        </div>
+  <div class="card-body">
+    <div class="row align-items-center">
+      <a class="aNo" href="/user/<%= article.author.username %> ">
+        <img
+          class="profile"
+          src="<%= article.author.image.url %>"
+          alt=""
+          srcset=""
+        />
+        <span class=""><%= article.author.username %></span>
+      </a>
+      <% if(currentUser.username === article.author.username) { %>
+
+      <form class="mr-3 right" action="/<%= article._id %>?_method=DELETE" method="POST">
+        <button class="btn btn-danger">삭제</button>
+      </form>
+      <% } %>
     </div>
+  </div>
   <div>
     <img class="mainImg" src="<%= article.image.url %> " alt="" srcset="" />
   </div>
@@ -41,18 +39,47 @@
     <p><b><%= article.author.username %></b> <%= article.description %></p>
   </div>
   <hr class="m-0" />
+
   <div class="card-body">
-    <form class="commentForm row" action="">
+      <% for(let review of article.reviews) { %> 
+    <div class="mb-3">
+      <a class="aNo" href="/user/<%= review.author.username %> ">
+        <img
+          class="profile m-0 mr-1"
+          src="<%= review.author.image.url %>"
+          alt=""
+          srcset=""
+        />
+        <span class=""><%= review.author.username %></span>
+      </a>
+      <span><%= review.body %> </span>
+    </div>
+    <% } %> 
+  </div>
+
+  <hr class="m-0" />
+  <div class="card-body">
+    <form
+      class="commentForm row"
+      action="<%= article._id %>/reviews"
+      method="POST"
+    >
       <div class="col-9">
-        <input class="" type="text" name="" id="" placeholder="내용..." />
+        <input
+          class=""
+          type="text"
+          name="review[body]"
+          id="body"
+          placeholder="내용..."
+        />
       </div>
       <div class="col-3">
         <button class="">게시</button>
       </div>
     </form>
   </div>
-  <hr class="m-0" />
+  <!-- <hr class="m-0" />
   <div class="card-body">
     <p><%= article.author.username %>님의 게시글 더보기</p>
-  </div>
+  </div> -->
 </div>

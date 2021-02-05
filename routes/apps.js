@@ -36,6 +36,8 @@ router.route("/new")
  .get(
      appController.renderShow
  )
+ .delete(appController.deleteArticle)
+
 
 
 module.exports = router;

@@ -34,8 +34,10 @@ module.exports.renderNew = async (req,res) => {
 
 module.exports.renderShow = async (req,res) => {
     
-    const article = await articleModel.findById(req.params.id).populate('author')
-    // console.log(article)
+    const article = await articleModel.findById(req.params.id)
+    .populate({ path: "reviews", populate: { path: "author" } })
+    .populate('author')
+    //console.log(article)
     res.render("apps/show",{article})
 }
 
@@ -53,3 +55,11 @@ module.exports.createArticle = async (req,res) => {
     res.redirect('/')
 }
 
+module.exports.deleteArticle = async (req,res) => {
+    //console.log(req.params)
+    //const id = req.params;
+    //const article = await articleModel.findById(req.params.id)
+
+    await articleModel.findByIdAndDelete(req.params.id)
+    res.redirect("/")
+}

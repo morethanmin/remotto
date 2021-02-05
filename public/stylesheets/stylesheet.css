@@ -99,3 +99,12 @@
 .profileArticleImg{
     width: 100%;
 }
+
+
+.toggleBox{
+    position: fixed;
+    bottom: 25px;
+    width: 60px;
+    right: 15px;
+    z-index: 1;
+}

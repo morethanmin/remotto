@@ -13,10 +13,12 @@ const mongoose = require('mongoose');
 const User = require('./models/user');
 const ejsMate = require('ejs-mate');
 const session = require('express-session');
+const methodOverride = require('method-override');
 const MongoDBStore = require('connect-mongo')(session);
 
 // routes
 const appRoutes = require('./routes/apps');
+const reviewRoutes = require('./routes/reviews');
 const userRoutes = require('./routes/users');
 
 //mongo
@@ -74,6 +76,8 @@ app.use(express.static(path.join(__dirname, 'public')))
 app.use(session(sessionConfig));
 app.use(passport.initialize());
 app.use(passport.session());
+app.use(methodOverride('_method'));
+
 
 passport.use(new LocalStrategy(User.authenticate()));
 passport.serializeUser(User.serializeUser());
@@ -87,7 +91,7 @@ app.use((req,res,next) => {
 
 app.use('/', userRoutes);
 app.use('/', appRoutes);
-
+app.use('/:id/reviews', reviewRoutes);
 
 const port = process.env.PORT || 3000;
 
