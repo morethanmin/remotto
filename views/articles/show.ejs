@@ -44,7 +44,7 @@
               <% if(currentUser.username === article.author.username) { %>
 
               <div class="modal-body">
-                <a href="ss/ss/ss" class="col btn">수정하기</a>
+                <a href="/<%= article._id %>/edit" class="col btn">수정하기</a>
               </div>
               <hr class="m-0" />
               <div class="modal-body">
@@ -80,7 +80,7 @@
     <img class="mainImg" src="<%= article.image.url %> " alt="" srcset="" />
   </div>
   <div class="card-body">
-    <div class="mb-3 articleToggleBox row">
+    <!-- <div class="mb-3 articleToggleBox row">
       <form class="" action="#" method="get">
         <button class="atBtn">❤</button>
       </form>
@@ -91,8 +91,8 @@
         <button class="atBtn">✉</button>
       </form>
     </div>
-    <p><%= article.likes.length %>명이 이 글을 좋아합니다.</p>
-    <p><b><%= article.author.username %></b> <%= article.description %></p>
+    <p><%= article.likes.length %>명이 이 글을 좋아합니다.</p> -->
+    <p ><b><%= article.author.username %></b> <%= article.description %></p>
   </div>
   <hr class="m-0" />
 
@@ -134,10 +134,10 @@
             <div class="modal-content">
               <% if(currentUser.username === review.author.username) { %>
 
-              <div class="modal-body">
-                <a href="ss/ss/ss" class="col btn">수정하기</a>
+              <!-- <div class="modal-body">
+                <a href="/<%= article._id %>/reviews/<%= review._id %>/edit" class="col btn">수정하기</a>
               </div>
-              <hr class="m-0" />
+              <hr class="m-0" /> -->
               <div class="modal-body">
                 <form
                   class=""

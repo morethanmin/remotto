@@ -20,6 +20,7 @@ const MongoDBStore = require('connect-mongo')(session);
 const appRoutes = require('./routes/apps');
 const reviewRoutes = require('./routes/reviews');
 const userRoutes = require('./routes/users');
+const articleRoutes = require('./routes/articles');
 
 //mongo
 
@@ -91,7 +92,11 @@ app.use((req,res,next) => {
 
 app.use('/', userRoutes);
 app.use('/', appRoutes);
+app.use('/', articleRoutes);
+
 app.use('/:id/reviews', reviewRoutes);
+
+
 
 const port = process.env.PORT || 3000;
 

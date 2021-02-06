@@ -70,8 +70,8 @@
     </a>
   </div>
 
-  <div class="card-body">
-    <div class="mb-3 articleToggleBox row">
+  <div class="card-body pb-0">
+    <!-- <div class="mb-3 articleToggleBox row">
       <form class="" action="#" method="get">
         <button class="atBtn">❤</button>
       </form>
@@ -82,8 +82,11 @@
         <button class="atBtn">✉</button>
       </form>
     </div>
-    <p><%= article.likes.length %>명이 이 글을 좋아합니다.</p>
+    <p><%= article.likes.length %>명이 이 글을 좋아합니다.</p> -->
     <p><b><%= article.author.username %></b> <%= article.description %></p>
+    <a class="aNo" href="<%= article._id %>">
+    <p class="text-muted">댓글 <%= article.reviews.length %>개 모두 보기</p>
+  </a>
   </div>
   <hr class="m-0" />
   <a class="aNo" href="<%= article._id %> ">
