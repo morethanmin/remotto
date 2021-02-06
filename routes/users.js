@@ -1,7 +1,7 @@
 const express = require("express");
 const passport = require("passport");
 const router = express.Router();
-const { isNotLoggedIn } = require("../controllers/middleware");
+const { isLoggedIn } = require("../controllers/middleware");
 
 const userController = require("../controllers/users")
 
@@ -26,6 +26,8 @@ router.route("/logout")
 .post(userController.logout)
 
 router.route("/user/:username")
-.get(userController.renderProfile)
+.get(
+    isLoggedIn,
+    userController.renderProfile)
 
 module.exports = router;
