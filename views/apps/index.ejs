@@ -1,35 +1,77 @@
 <% layout('/layouts/appBoilerplate') %>
 
-  <div class="toggleBox">
-    <form action="new" method="get">
-      <button class="btn btn-success btn-block">📝</button>
-    </form>
+<div class="toggleBox">
+  <form action="new" method="get">
+    <button class="btn btn-success btn-block">📝</button>
+  </form>
 </div>
 
-<% for(let article of articles){ %>
-
+<% for(let i=0; i<articles.length; i++) { %>
+    <% const article = articles[i] %> 
 <div class="card mb-5">
   <div class="card-body">
-    <a
-      class="aNo row align-items-center"
-      href="/user/<%= article.author.username %> "
-    >
-      <img
-        class="profile"
-        src="<%= article.author.image.url %>"
-        alt=""
-        srcset=""
-      />
-      <span class=""><%= article.author.username %></span>
-    </a>
+    <div class="row">
+      <a class="aNo" href="/user/<%= article.author.username %>">
+        <img
+          class="profile"
+          src="<%= article.author.image.url %>"
+          alt=""
+          srcset=""
+        />
+        <span class=""><%= article.author.username %></span>
+      </a>
+
+      <div class="right">
+        <!-- Button trigger modal -->
+        <button
+          type="button"
+          class="btn"
+          data-toggle="modal"
+          data-target="#articleModal<%= i %>"
+        >
+          ···
+        </button>
+
+        <!-- Modal -->
+        <div
+          class="modal fade"
+          id="articleModal<%= i %>"
+          tabindex="-1"
+          aria-labelledby="exampleModalLabel"
+          aria-hidden="true"
+        >
+          <div class="modal-dialog modal-dialog-centered modal-sm">
+            <div class="modal-content">
+
+              <div class="modal-body">
+                <a href="/user/<%= article.author.username %>" class="col btn">프로필 보기</a>
+              </div>
+              <hr class="m-0" />
+
+              <div class="modal-body">
+                <a href="<%= article._id %>" class="col btn">게시글 보기</a>
+              </div>
+
+              <hr class="m-0" />
+              <div class="modal-body">
+                <button type="button" class="btn col" data-dismiss="modal">취소</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+      </div>
+
+    </div>
   </div>
   <div>
-    <a href="<%= article._id %> ">
+    <a href="<%= article._id %>">
       <img class="mainImg" src="<%= article.image.url %> " alt="" srcset="" />
     </a>
   </div>
+
   <div class="card-body">
-    <!-- <div class="mb-3 articleToggleBox row">
+    <div class="mb-3 articleToggleBox row">
       <form class="" action="#" method="get">
         <button class="atBtn">❤</button>
       </form>
@@ -40,7 +82,7 @@
         <button class="atBtn">✉</button>
       </form>
     </div>
-    <p><%= article.likes.length %>명이 이 글을 좋아합니다.</p> -->
+    <p><%= article.likes.length %>명이 이 글을 좋아합니다.</p>
     <p><b><%= article.author.username %></b> <%= article.description %></p>
   </div>
   <hr class="m-0" />
@@ -48,7 +90,7 @@
     <div class="card-body">
       <form class="commentForm row" action="">
         <div class="col-9">
-          <span class="text-muted" >내용...</span>
+          <span class="text-muted">내용...</span>
         </div>
         <div class="col-3">
           <button class="">게시</button>

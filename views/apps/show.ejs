@@ -2,22 +2,78 @@
 
 <div class="card mb-5">
   <div class="card-body">
-    <div class="row align-items-center">
-      <a class="aNo" href="/user/<%= article.author.username %> ">
-        <img
-          class="profile"
-          src="<%= article.author.image.url %>"
-          alt=""
-          srcset=""
-        />
-        <span class=""><%= article.author.username %></span>
-      </a>
-      <% if(currentUser.username === article.author.username) { %>
+    <div class="row">
+      <div class="col-8 p-0">
+        <a class="aNo" href="/user/<%= article.author.username %> ">
+          <img
+            class="profile"
+            src="<%= article.author.image.url %>"
+            alt=""
+            srcset=""
+          />
+          <span class=""><%= article.author.username %></span>
+        </a>
+      </div>
 
-      <form class="mr-3 right" action="/<%= article._id %>?_method=DELETE" method="POST">
-        <button class="btn btn-danger">삭제</button>
-      </form>
-      <% } %>
+      <div class="right">
+        <!-- Button trigger modal -->
+        <button
+          type="button"
+          class="btn"
+          data-toggle="modal"
+          data-target="#exampleModal"
+        >
+          ···
+        </button>
+
+        <!-- Modal -->
+        <div
+          class="modal fade"
+          id="exampleModal"
+          tabindex="-1"
+          aria-labelledby="exampleModalLabel"
+          aria-hidden="true"
+        >
+          <div class="modal-dialog modal-dialog-centered modal-sm">
+            <div class="modal-content">
+              <div class="modal-body">
+                <a href="/user/<%= article.author.username %>" class="col btn">프로필 보기</a>
+              </div>
+              <hr class="m-0" />
+
+              <% if(currentUser.username === article.author.username) { %>
+
+              <div class="modal-body">
+                <a href="ss/ss/ss" class="col btn">수정하기</a>
+              </div>
+              <hr class="m-0" />
+              <div class="modal-body">
+                <form
+                  class=""
+                  action="/<%= article._id %>?_method=DELETE"
+                  method="POST"
+                >
+                  <button class="text-danger col btn">삭제하기</button>
+                </form>
+              </div>
+
+              <% } %>
+              <hr class="m-0" />
+
+              <div class="modal-body">
+                <a href="/" class="col btn">목록으로 돌아가기</a>
+              </div>
+
+              <hr class="m-0" />
+              <div class="modal-body">
+                <button type="button" class="btn col" data-dismiss="modal">
+                  취소
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
   <div>
@@ -41,20 +97,72 @@
   <hr class="m-0" />
 
   <div class="card-body">
-      <% for(let review of article.reviews) { %> 
-    <div class="mb-3">
-      <a class="aNo" href="/user/<%= review.author.username %> ">
-        <img
-          class="profile m-0 mr-1"
-          src="<%= review.author.image.url %>"
-          alt=""
-          srcset=""
-        />
-        <span class=""><%= review.author.username %></span>
-      </a>
-      <span><%= review.body %> </span>
+    <% if(article.reviews.length) { %>
+    <% for(let i=0; i<article.reviews.length; i++) { %>
+      <% const review = article.reviews[i] %> 
+    <div class="row">
+      <div class="mb-3 col-10">
+        <a class="aNo" href="/user/<%= review.author.username %> ">
+          <img
+            class="profile m-0 mr-1"
+            src="<%= review.author.image.url %>"
+            alt=""
+            srcset=""
+          />
+          <span class=""><%= review.author.username %></span>
+        </a>
+        <span><%= review.body %> </span>
+      </div>
+      <div class="right">
+        <button
+          type="button"
+          class="btn"
+          data-toggle="modal"
+          data-target="#reveiwModal<%= i %>"
+        >
+          ···
+        </button>
+
+        <div
+          class="modal fade"
+          id="reveiwModal<%= i %>"
+          tabindex="-1"
+          aria-labelledby="reviewModalLabel"
+          aria-hidden="true"
+        >
+          <div class="modal-dialog modal-dialog-centered modal-sm">
+            <div class="modal-content">
+              <% if(currentUser.username === review.author.username) { %>
+
+              <div class="modal-body">
+                <a href="ss/ss/ss" class="col btn">수정하기</a>
+              </div>
+              <hr class="m-0" />
+              <div class="modal-body">
+                <form
+                  class=""
+                  action="/<%= article._id %>/reviews/<%= review._id %>?_method=DELETE"
+                  method="POST"
+                >
+                  <button class="text-danger col btn">삭제하기</button>
+                </form>
+              </div>
+              <% } %>
+
+              <hr class="m-0" />
+              <div class="modal-body">
+                <button type="button" class="btn col" data-dismiss="modal">
+                  취소
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-    <% } %> 
+    <% } %> <% } else { %>
+    <div>표시할 댓글이 없습니다.</div>
+    <% } %>
   </div>
 
   <hr class="m-0" />

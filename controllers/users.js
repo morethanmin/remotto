@@ -23,10 +23,11 @@ module.exports.logout = async (req,res) => {
 module.exports.register = async (req,res) => {
     try {
     const {email, username, password} = req.body;
-    const user = new User({username,email});
+    const user = new userModel({username,email});
     await userModel.register(user, password);
     res.redirect("/login");
     } catch(e) {
+        console.log(e)
         res.redirect("/register");
         //console.log("error = " + e + "입니다.")  s
     }
