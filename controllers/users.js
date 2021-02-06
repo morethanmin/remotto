@@ -17,7 +17,8 @@ module.exports.login = async (req,res) => {
 module.exports.logout = async (req,res) => {
     req.logout();
     //이동
-    res.redirect("/login")
+    //res.locals.currentUser = req.user;
+    res.redirect("/")
 }
 
 module.exports.register = async (req,res) => {

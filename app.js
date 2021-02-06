@@ -85,6 +85,7 @@ passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
 app.use((req,res,next) => {
+     //if(req.user)
     res.locals.currentUser = req.user;
     //  console.log(res.locals.currentUser)
     next();
@@ -93,7 +94,6 @@ app.use((req,res,next) => {
 app.use('/', userRoutes);
 app.use('/', appRoutes);
 app.use('/', articleRoutes);
-
 app.use('/:id/reviews', reviewRoutes);
 
 

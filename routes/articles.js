@@ -8,18 +8,30 @@ const router = express.Router();
 const { isLoggedIn } = require("../controllers/middleware");
 const articleController = require("../controllers/articles");
 
+//router.use();
+
 
 router
   .route("/new")
-  .get(articleController.renderNew)
-  .post(upload.single("aaaa"), articleController.createArticle);
+  .get(
+    isLoggedIn,  
+    articleController.renderNew)
+  .post(
+    //isLoggedIn,  
+    upload.single("aaaa"), articleController.createArticle);
 
 router
   .route("/:id")
-  .get(articleController.renderShow)
-  .delete(articleController.deleteArticle);
+  .get(
+    isLoggedIn,
+    articleController.renderShow)
+  .delete(
+    isLoggedIn,
+    articleController.deleteArticle);
 
 router.route('/:id/edit')
-.get(articleController.renderEdit)
+.get(
+    isLoggedIn,
+    articleController.renderEdit)
 
 module.exports = router;

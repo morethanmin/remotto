@@ -9,7 +9,7 @@ const userController = require("../controllers/users")
 
 router.route("/login")
 .get(
-    isNotLoggedIn,
+    //isNotLoggedIn,
     userController.renderLogin)
 .post(
     passport.authenticate("local", {
