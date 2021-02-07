@@ -10,28 +10,22 @@ const articleController = require("../controllers/articles");
 
 //router.use();
 
-
-router
-  .route("/new")
+router.route("/new")
   .get(
-    isLoggedIn,  
-    articleController.renderNew)
+        isLoggedIn,
+        articleController.renderNew)
   .post(
-    //isLoggedIn,  
-    upload.single("aaaa"), articleController.createArticle);
+        //isLoggedIn,
+        upload.single("aaaa"),
+        articleController.createArticle
+);
 
 router
   .route("/:id")
-  .get(
-    isLoggedIn,
-    articleController.renderShow)
-  .delete(
-    isLoggedIn,
-    articleController.deleteArticle);
+  .get(isLoggedIn, articleController.renderShow)
+  .put(isLoggedIn, upload.single("aaaa"), articleController.updateArticle)
+  .delete(isLoggedIn, articleController.deleteArticle);
 
-router.route('/:id/edit')
-.get(
-    isLoggedIn,
-    articleController.renderEdit)
+router.route("/:id/edit").get(isLoggedIn, articleController.renderEdit);
 
 module.exports = router;

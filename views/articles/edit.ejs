@@ -1,1 +1,66 @@
 <% layout('/layouts/appBoilerplate') %>
+
+
+<div class="card">
+    <div class="card-body ">
+        <form action="/<%= article._id %>?_method=PUT" method="POST" novalidate class="validated-form" >
+            <div class="mb-3 newImgBox">
+                <img src="<%= article.image.url %>" class="" id="previewImg" alt="" srcset="">
+            </div>
+            <div class="mb-3">
+                <div class="form-file custom-file">
+
+                    <input type="file" class="form-file-input" id="image" name="aaaa">
+                    <label class="form-file-label" for="image">
+                        <span id="pic" class="form-file-text custom-file-label">Choose image...</span>
+                        <span class="form-file-button">Browse</span>
+                    </label>
+                </div>
+            </div>
+            <div class="mb-3">
+                <label class="form-label" for="description">내용</label>
+                <textarea class="form-control" type="text" id="description" name="article[description]"
+                required><%= article.description %></textarea>
+            </div>
+            <div class="mb-3">
+                <button class="btn btn-warning">수정..</button>
+
+            </div>
+        </form>
+    </div>
+    
+</div>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
+
+<script>
+    //file input preview value
+    document.querySelector('.form-file-input').addEventListener('change',function(e){
+var fileName = document.getElementById("image").files[0].name;
+var target = document.querySelector("#pic");
+ console.dir(document.getElementById("image").value)
+// var nextSibling = e.target.nextElementSibling
+target.innerText = fileName
+})
+
+    //file input preview img
+
+    function readURL(input) {
+  if (input.files && input.files[0]) {
+    var reader = new FileReader();
+    
+    reader.onload = function(e) {
+      $('#previewImg').attr('src', e.target.result);
+    }
+    
+    reader.readAsDataURL(input.files[0]); // convert to base64 string
+  }
+}
+
+$("#image").change(function() {
+  readURL(this);
+});
+
+</script>

@@ -16,6 +16,6 @@ router.route("/messeges").get(appController.renderMesseges);
 
 router.route("/likes").get(appController.renderLikes);
 
-
+router.route("/setting").get(appController.renderSetting)
 
 module.exports = router;

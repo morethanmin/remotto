@@ -31,3 +31,7 @@ module.exports.renderNew = async (req,res) => {
     //console.log(req.user._id)
     res.render("apps/new")
 }
+
+module.exports.renderSetting = async (req,res) => {
+    res.render("apps/setting")
+}

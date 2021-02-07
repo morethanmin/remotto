@@ -27,7 +27,7 @@ router.route("/logout")
 
 router.route("/user/:username")
 .get(
-    isLoggedIn,
+    //isLoggedIn,
     userController.renderProfile)
 
 module.exports = router;

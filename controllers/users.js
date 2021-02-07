@@ -36,7 +36,6 @@ module.exports.register = async (req,res) => {
 
 module.exports.renderProfile = async (req,res) => {
     const user = await userModel.findOne({username:req.params.username})
-    //console.log(user._id)
     const userId = user._id
     const userArticles = await articleModel.find({author:userId})
     //console.log(userArticles)

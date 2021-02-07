@@ -1,0 +1,15 @@
+<% layout('/layouts/appBoilerplate') %>
+
+<div class="card">
+  <div class="card-body">
+        <% if(typeof(currentUser) !== 'undefined') { %> 
+        <form action="/logout" method="POST" class="validated-form" novalidate>
+            <button class="btn btn-danger btn-block">로그아웃</button>
+        </form>
+        <% } else { %> 
+            <form action="/login" method="GET" class="validated-form" novalidate>
+                <button class="btn btn-success btn-block">로그인</button>
+            </form>  
+            <% } %> 
+  </div>
+</div>
