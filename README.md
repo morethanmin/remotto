@@ -6,6 +6,8 @@ sns application project like instagram
 
 전반적인 개발 프로세스를 되짚어보고 백엔드와 프론트엔드간의 상호작용을 공부하기위해 만든 toy project.
 
+## Skills
+
 ### Front
 
 - Bootstrap
