@@ -30,13 +30,10 @@ https://remotto.herokuapp.com/
 
 ## Features
 
-- Login, Logout session
-- CRUD 구현
-- cloudinary를 이용한 image upload
+- session기반의 로그인 인증 기능 구현
+- 이미지 기반 게시글 작성, 삭제, 수정 기능
+- cloudinary를 이용한 image uploading
 - user 게시글 작성, 수정 및 삭제 권한 부여
-
-![image](https://user-images.githubusercontent.com/72514247/105837022-6b8c4f00-6011-11eb-8869-5f05dca7cec1.png)
-
 
 MVC 디자인 패턴을 적용하여 좀 더 생산적인 코드 작성을 노력하였습니다.
 
