@@ -10,20 +10,15 @@ sns application project like instagram
 
 ### Front
 
-- Bootstrap
-- EJS (Templete engine)
+`Bootstrap` `EJS (Templete engine)`
 
 ### Back
 
-- NODEJS
-- Express
-- Mongoose (ODM)
+`NODEJS` `Express` `Mongoose (ODM)`
 
 ### Server & DB
 
-- Mongo DB
-- Cloudinary
-- Heroku
+`Mongo DB` `Cloudinary(img upload)` `Heroku`
 
 ### link
 
