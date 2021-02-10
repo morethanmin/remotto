@@ -4,7 +4,7 @@ sns application project like instagram
 
 ![chrome-capture](https://user-images.githubusercontent.com/72514247/107004317-72654f80-67d1-11eb-8d5a-ae071d93c163.gif)
 
-전반적인 개발 프로세스를 되짚어보고 백엔드와 프론트엔드간의 상호작용을 공부하기위해 만든 toy project.
+전반적인 개발 프로세스를 되짚어보고 공부하기위해 만든 인스타그램형식의 sns toy project.
 
 ## Skills
 
