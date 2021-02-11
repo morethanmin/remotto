@@ -22,7 +22,7 @@ sns application project like instagram
 
 ### link
 
-https://remotto.herokuapp.com/
+https://morethanmin-remotto.herokuapp.com/
 
 
 ## Features
