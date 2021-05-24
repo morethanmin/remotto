@@ -36,6 +36,7 @@ https://morethanmin-remotto.herokuapp.com/
 
 - session기반의 로그인 인증 기능 구현
 - 이미지 기반 게시글 작성, 삭제, 수정 기능
+- 댓글 작성, 삭제 기능
 - cloudinary를 이용한 image uploading
 - user 게시글 작성, 수정 및 삭제 권한 부여
 
