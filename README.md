@@ -2,9 +2,9 @@
 
 sns application project like instagram
 
-![chrome-capture](https://user-images.githubusercontent.com/72514247/107004317-72654f80-67d1-11eb-8d5a-ae071d93c163.gif)
+![image](https://user-images.githubusercontent.com/72514247/119368913-8a180380-bcee-11eb-80c4-a7e77949dcb8.png)
 
-전반적인 개발 프로세스를 되짚어보고 공부하기위해 만든 인스타그램형식의 sns toy project.
+인스타그램형식의 sns CRUD toy project.
 
 ## Skills
 
@@ -20,7 +20,13 @@ sns application project like instagram
 
 `Mongo DB` `Cloudinary(img upload)` `Heroku`
 
-### link
+## Page
+
+### index
+
+
+
+## link
 
 https://morethanmin-remotto.herokuapp.com/
 
