@@ -20,12 +20,6 @@ sns application project like instagram
 
 `Mongo DB` `Cloudinary(img upload)` `Heroku`
 
-## Page
-
-### index
-
-
-
 ## link
 
 https://morethanmin-remotto.herokuapp.com/
@@ -43,4 +37,29 @@ https://morethanmin-remotto.herokuapp.com/
 MVC 디자인 패턴을 적용하여 좀 더 생산적인 코드 작성을 노력하였습니다.
 
 Mongo Injection, XSS(Cross Site Scripting) 같은 일반적인 보안문제에 대응하여 제작했습니다.
+
+
+## Pages
+
+### /index
+
+![image](https://user-images.githubusercontent.com/72514247/120101072-39d1f300-c17f-11eb-834d-8ab94a492d01.png)
+
+
+### /:article-id
+
+![image](https://user-images.githubusercontent.com/72514247/120101092-51a97700-c17f-11eb-823e-ccad99e1eab1.png)
+
+### /user/:user-id
+
+![image](https://user-images.githubusercontent.com/72514247/120101103-62f28380-c17f-11eb-8513-1aa6332dcce7.png)
+
+### /setting
+
+![image](https://user-images.githubusercontent.com/72514247/120101119-6d148200-c17f-11eb-90db-411e558f0feb.png)
+
+### /new
+
+![image](https://user-images.githubusercontent.com/72514247/120101129-7c93cb00-c17f-11eb-885c-a9909fc6c6c3.png)
+
 
